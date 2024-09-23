@@ -5,6 +5,7 @@ on:
     paths:
       - 'olaka/**'  # This ensures the workflow runs only if changes are made in olaka folder
       - '!jujubi/**'  # Excludes changes in jujubi folder
+  workflow_dispatch:  # This enables manual triggering 
 
 jobs:
   check-olaka-changes:
