@@ -1,0 +1,22 @@
+name: PR Check for olaka
+
+on:
+  pull_request:
+    paths:
+      - 'olaka/**'  # This ensures the workflow runs only if changes are made in olaka folder
+      - '!jujubi/**'  # Excludes changes in jujubi folder
+
+jobs:
+  check-olaka-changes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Check for changes in olaka folder
+        run: |
+          git diff --name-only HEAD^ HEAD | grep -q "^olaka/"
+      
+      - name: Simulate  apply (success)
+        if: success()  # Only if the above check passes
+        run: echo "apply simulated successfully."
