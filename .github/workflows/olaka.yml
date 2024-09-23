@@ -1,0 +1,14 @@
+name: check for olaka
+on:
+  pull_request:
+    paths:
+      - 'olaka/**'  
+jobs:
+  olaka-apply:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Simulate Atlantis apply
+        run: echo "Running olaka apply for changes in the olaka folder"
