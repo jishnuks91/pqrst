@@ -1,0 +1,16 @@
+name:  Apply or any check
+
+on:
+  pull_request:  # The workflow runs on every pull request
+    branches:
+      - main  # Adjust to your main branch or target branch
+
+jobs:
+  check-apply:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: check apply
+        run: echo "apply for PR..."
